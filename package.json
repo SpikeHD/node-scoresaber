@@ -1,6 +1,6 @@
 {
   "name": "node-scoresaber",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Scoresaber API wrapper",
   "main": "index.js",
   "scripts": {
