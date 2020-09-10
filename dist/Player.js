@@ -115,7 +115,7 @@ var Player = /*#__PURE__*/function () {
                 return this.get();
 
               case 8:
-                return _context2.abrupt("return", true);
+                return _context2.abrupt("return", this);
 
               case 9:
                 return _context2.abrupt("return", false);

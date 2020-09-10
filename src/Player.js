@@ -51,7 +51,7 @@ class Player {
     if(players[0]) {
       this.id = players[0].playerId
       await this.get()
-      return true
+      return this
     }
 
     return false
