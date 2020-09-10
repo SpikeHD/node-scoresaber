@@ -29,7 +29,7 @@ console.log(player)
 console.log(scores)
 ```
 ### Notes:
-Construct the player class using only an ID. You can then call `.get()` to retrieve all relevant information. The ID can be a number or string. You can also call `.getTopScores(page)` or `.getRecentScores()` to retrieve a list of a players top/recent scores.
+Construct the player class using only an ID. You can then call `.get()` to retrieve all relevant information. The ID can be a number or string. You can also call `.getTopScores(page)` or `.getRecentScores()` to retrieve a list of a players top/recent scores. **You do not need to call `.get()` on a player before retrieving their scores**.
 
 ## Requests
 
