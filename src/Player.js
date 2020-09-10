@@ -37,12 +37,24 @@ class Player {
   }
 
   /**
-   * Get scores of player based on page number
+   * Get top scores of player based on page number
    * 
    * @param {Number} num 
    */
-  async getScores(num = 1) {
+  async getTopScores(num = 1) {
     let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num)
+    let data = res.data
+
+    return data.scores
+  }
+
+  /**
+   * Get recent scores of player based on page number
+   * 
+   * @param {Number} num 
+   */
+  async getTopScores(num = 1) {
+    let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num)
     let data = res.data
 
     return data.scores

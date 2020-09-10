@@ -15,11 +15,20 @@ var axios = require('axios');
 var default_url = 'https://new.scoresaber.com';
 
 var Request = /*#__PURE__*/function () {
+  /**
+   * Assigns ID
+   * 
+   * @param {Number|String} id 
+   */
   function Request(id) {
     (0, _classCallCheck2["default"])(this, Request);
     if (!id) throw Error('No ID provided in Request() constructor');
     this.request = id;
   }
+  /**
+   * Use ID to get song request data
+   */
+
 
   (0, _createClass2["default"])(Request, [{
     key: "get",

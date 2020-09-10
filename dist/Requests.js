@@ -12,19 +12,25 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpe
 
 var axios = require('axios');
 
-var Request = require('./Request');
-
 var default_url = 'https://new.scoresaber.com';
 
 var Requests = /*#__PURE__*/function () {
+  /**
+   * Empty constructor because we don't
+   * need to do anything.
+   */
   function Requests() {
     (0, _classCallCheck2["default"])(this, Requests);
   }
+  /**
+   * Get list of top ranked requests
+   */
+
 
   (0, _createClass2["default"])(Requests, [{
-    key: "get",
+    key: "getTop",
     value: function () {
-      var _get = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+      var _getTop = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
         var res, data;
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
@@ -46,11 +52,11 @@ var Requests = /*#__PURE__*/function () {
         }, _callee, this);
       }));
 
-      function get() {
-        return _get.apply(this, arguments);
+      function getTop() {
+        return _getTop.apply(this, arguments);
       }
 
-      return get;
+      return getTop;
     }()
   }]);
   return Requests;

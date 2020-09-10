@@ -15,6 +15,11 @@ var axios = require('axios');
 var default_url = 'https://new.scoresaber.com';
 
 var Player = /*#__PURE__*/function () {
+  /**
+   * Assigns ID
+   * 
+   * @param {Number|String} id 
+   */
   function Player(id) {
     (0, _classCallCheck2["default"])(this, Player);
     if (!id) throw Error('No ID provided in Player() constructor');
@@ -71,15 +76,15 @@ var Player = /*#__PURE__*/function () {
       return get;
     }()
     /**
-     * Get scores of player based on page number
+     * Get top scores of player based on page number
      * 
      * @param {Number} num 
      */
 
   }, {
-    key: "getScores",
+    key: "getTopScores",
     value: function () {
-      var _getScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _getTopScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
         var num,
             res,
             data,
@@ -105,11 +110,52 @@ var Player = /*#__PURE__*/function () {
         }, _callee2, this);
       }));
 
-      function getScores() {
-        return _getScores.apply(this, arguments);
+      function getTopScores() {
+        return _getTopScores.apply(this, arguments);
       }
 
-      return getScores;
+      return getTopScores;
+    }()
+    /**
+     * Get recent scores of player based on page number
+     * 
+     * @param {Number} num 
+     */
+
+  }, {
+    key: "getTopScores",
+    value: function () {
+      var _getTopScores2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
+        var num,
+            res,
+            data,
+            _args3 = arguments;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                num = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
+                _context3.next = 3;
+                return axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num);
+
+              case 3:
+                res = _context3.sent;
+                data = res.data;
+                return _context3.abrupt("return", data.scores);
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function getTopScores() {
+        return _getTopScores2.apply(this, arguments);
+      }
+
+      return getTopScores;
     }()
   }]);
   return Player;
