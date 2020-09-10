@@ -2,6 +2,11 @@ const axios = require('axios')
 const default_url = 'https://new.scoresaber.com'
 
 class Player {
+  /**
+   * Assigns ID
+   * 
+   * @param {Number|String} id 
+   */
   constructor(id) {
     if(!id) throw Error('No ID provided in Player() constructor')
     this.id = id

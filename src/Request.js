@@ -2,11 +2,19 @@ const axios = require('axios')
 const default_url = 'https://new.scoresaber.com'
 
 class Request {
+  /**
+   * Assigns ID
+   * 
+   * @param {Number|String} id 
+   */
   constructor(id) {
     if(!id) throw Error('No ID provided in Request() constructor')
     this.request = id
   }
 
+  /**
+   * Use ID to get song request data
+   */
   async get() {
     let res = await axios.get(default_url + '/api/ranking/request/' + this.request)
     let data = res.data.request
