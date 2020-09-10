@@ -20,6 +20,10 @@ var Player = /*#__PURE__*/function () {
     if (!id) throw Error('No ID provided in Player() constructor');
     this.id = id;
   }
+  /**
+   * Get player data and score data
+   */
+
 
   (0, _createClass2["default"])(Player, [{
     key: "get",
@@ -65,6 +69,47 @@ var Player = /*#__PURE__*/function () {
       }
 
       return get;
+    }()
+    /**
+     * Get scores of player based on page number
+     * 
+     * @param {Number} num 
+     */
+
+  }, {
+    key: "getScores",
+    value: function () {
+      var _getScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+        var num,
+            res,
+            data,
+            _args2 = arguments;
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                num = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 1;
+                _context2.next = 3;
+                return axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num);
+
+              case 3:
+                res = _context2.sent;
+                data = res.data;
+                return _context2.abrupt("return", data.scores);
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function getScores() {
+        return _getScores.apply(this, arguments);
+      }
+
+      return getScores;
     }()
   }]);
   return Player;

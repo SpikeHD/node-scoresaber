@@ -7,6 +7,9 @@ class Player {
     this.id = id
   }
 
+  /**
+   * Get player data and score data
+   */
   async get() {
     let res = await axios.get(default_url + '/api/player/' + this.id + '/full')
     let data = res.data.playerInfo
@@ -26,6 +29,18 @@ class Player {
     this.averageRankedAccuracy = res.data.scoreStats.averageRankedAccuracy
     this.playCount = res.data.scoreStats.totalPlayCount
     this.rankedPlayCount = res.data.scoreStats.rankedPlayCount
+  }
+
+  /**
+   * Get scores of player based on page number
+   * 
+   * @param {Number} num 
+   */
+  async getScores(num = 1) {
+    let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num)
+    let data = res.data
+
+    return data.scores
   }
 }
 
