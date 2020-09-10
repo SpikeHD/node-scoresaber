@@ -11,6 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/SpikeHD/node-scoresaber.git"
   },
+  "keywords":[
+    "beatsaber",
+    "scoresaber",
+    "api",
+    "wrapper"
+  ],
   "author": "SpikeHD",
   "license": "GNU General Public License v3.0",
   "bugs": {
