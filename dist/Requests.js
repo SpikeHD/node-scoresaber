@@ -59,7 +59,7 @@ var Requests = /*#__PURE__*/function () {
       return getTop;
     }()
     /**
-     * Get list of top ranked requests
+     * Get list of all ranked requests
      */
 
   }, {

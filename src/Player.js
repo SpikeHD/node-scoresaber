@@ -8,7 +8,6 @@ class Player {
    * @param {Number|String} id 
    */
   constructor(id) {
-    if(!id) throw Error('No ID provided in Player() constructor')
     this.id = id
   }
 
@@ -16,6 +15,8 @@ class Player {
    * Get player data and score data
    */
   async get() {
+    if(!this.id) throw Error('Current object has no ID. Did you forget to provide one in the constructor or .find()?')
+
     let res = await axios.get(default_url + '/api/player/' + this.id + '/full')
     let data = res.data.playerInfo
 
@@ -34,6 +35,26 @@ class Player {
     this.averageRankedAccuracy = res.data.scoreStats.averageRankedAccuracy
     this.playCount = res.data.scoreStats.totalPlayCount
     this.rankedPlayCount = res.data.scoreStats.rankedPlayCount
+  }
+
+  /**
+   * Find and get the first player using a search term. If no player exists, don't do anything
+   * and return false.
+   * 
+   * @param {String} name 
+   */
+  async find(name) {
+    let res = await axios.get(default_url + '/api/players/by-name/' + name)
+    let players = res.data.players
+
+    // If at least one player shows up in the search, get() them
+    if(players[0]) {
+      this.id = players[0].playerId
+      await this.get()
+      return true
+    }
+
+    return false
   }
 
   /**

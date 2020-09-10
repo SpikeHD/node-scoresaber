@@ -22,7 +22,6 @@ var Player = /*#__PURE__*/function () {
    */
   function Player(id) {
     (0, _classCallCheck2["default"])(this, Player);
-    if (!id) throw Error('No ID provided in Player() constructor');
     this.id = id;
   }
   /**
@@ -39,10 +38,18 @@ var Player = /*#__PURE__*/function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.get(default_url + '/api/player/' + this.id + '/full');
+                if (this.id) {
+                  _context.next = 2;
+                  break;
+                }
+
+                throw Error('Current object has no ID. Did you forget to provide one in the constructor or .find()?');
 
               case 2:
+                _context.next = 4;
+                return axios.get(default_url + '/api/player/' + this.id + '/full');
+
+              case 4:
                 res = _context.sent;
                 data = res.data.playerInfo;
                 this.name = data.playerName;
@@ -61,7 +68,7 @@ var Player = /*#__PURE__*/function () {
                 this.playCount = res.data.scoreStats.totalPlayCount;
                 this.rankedPlayCount = res.data.scoreStats.rankedPlayCount;
 
-              case 19:
+              case 21:
               case "end":
                 return _context.stop();
             }
@@ -76,6 +83,58 @@ var Player = /*#__PURE__*/function () {
       return get;
     }()
     /**
+     * Find and get the first player using a search term. If no player exists, don't do anything
+     * and return false.
+     * 
+     * @param {String} name 
+     */
+
+  }, {
+    key: "find",
+    value: function () {
+      var _find = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(name) {
+        var res, players;
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(default_url + '/api/players/by-name/' + name);
+
+              case 2:
+                res = _context2.sent;
+                players = res.data.players; // If at least one player shows up in the search, get() them
+
+                if (!players[0]) {
+                  _context2.next = 9;
+                  break;
+                }
+
+                this.id = players[0].playerId;
+                _context2.next = 8;
+                return this.get();
+
+              case 8:
+                return _context2.abrupt("return", true);
+
+              case 9:
+                return _context2.abrupt("return", false);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function find(_x) {
+        return _find.apply(this, arguments);
+      }
+
+      return find;
+    }()
+    /**
      * Get top scores of player based on page number
      * 
      * @param {Number} num 
@@ -84,30 +143,30 @@ var Player = /*#__PURE__*/function () {
   }, {
     key: "getTopScores",
     value: function () {
-      var _getTopScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _getTopScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
         var num,
             res,
             data,
-            _args2 = arguments;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+            _args3 = arguments;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                num = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 1;
-                _context2.next = 3;
+                num = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
+                _context3.next = 3;
                 return axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num);
 
               case 3:
-                res = _context2.sent;
+                res = _context3.sent;
                 data = res.data;
-                return _context2.abrupt("return", data.scores);
+                return _context3.abrupt("return", data.scores);
 
               case 6:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function getTopScores() {
@@ -125,30 +184,30 @@ var Player = /*#__PURE__*/function () {
   }, {
     key: "getTopScores",
     value: function () {
-      var _getTopScores2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
+      var _getTopScores2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
         var num,
             res,
             data,
-            _args3 = arguments;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
+            _args4 = arguments;
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                num = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
-                _context3.next = 3;
+                num = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : 1;
+                _context4.next = 3;
                 return axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num);
 
               case 3:
-                res = _context3.sent;
+                res = _context4.sent;
                 data = res.data;
-                return _context3.abrupt("return", data.scores);
+                return _context4.abrupt("return", data.scores);
 
               case 6:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function getTopScores() {
