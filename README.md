@@ -11,9 +11,22 @@ Simply run `npm install node-scoresaber` and require it in your program:
 const saber = require('node-scoresaber')
 ```
 
-# Usage
+# Functions
 
-There are multiple classes that allow you to grab almost all data currently supported by the Scoresaber API.
+## searchPlayers(name)
+Search for players by name
+### Example:
+```js
+const saber = require('node-scoresaber')
+
+let results = saber.searchPlayers('spikehd')
+
+// You can use this in combination with the Player class
+let player = new saber.Player(results[0])
+player.get()
+```
+
+# Classes
 
 ## Player
 
@@ -28,8 +41,22 @@ let scores = player.getTopScores(page)
 console.log(player)
 console.log(scores)
 ```
-### Notes:
-Construct the player class using only an ID. You can then call `.get()` to retrieve all relevant information. The ID can be a number or string. You can also call `.getTopScores(page)` or `.getRecentScores()` to retrieve a list of a players top/recent scores. **You do not need to call `.get()` on a player before retrieving their scores**.
+### Methods:
+
+#### get()
+Retrieves all information about a player.
+
+#### find(name)
+Searches and retrieves the first player in the search results.
+
+#### getTopScores(page)
+Get players top scores.
+
+#### getRecentScores(page)
+Get players most recent scores.
+
+### Additional stuff:
+Score functions do not require `.get()` to be run first.
 
 ## Requests
 
@@ -43,8 +70,12 @@ console.log(rankedRequests.top)
 console.log(rankedRequests.all)
 ```
 
-### Notes:
-Requires no data input into the constructor, and can retrieve both the top ranked listings, as well as all of them.
+### Methods
+#### getTop()
+Get top ranked requests
+
+#### getAll()
+Get all ranked requests
 
 ## Request
 
@@ -65,8 +96,9 @@ requests.getTop()
 let firstRequest = new saber.Request(requests.top[0].request)
 ```
 
-### Notes:
-Can be used by itself, and is also designed to be easily used with the `Requests()` class. The ID can be a number or string
+### Methods:
+#### get()
+Retrieves all information about a ranked request
 
 ## Song
 
@@ -75,5 +107,5 @@ Can be used by itself, and is also designed to be easily used with the `Requests
 // Not suppported by API yet
 ```
 
-### Notes:
+### Methods:
 Currently not supported by the Scoresaber API.
