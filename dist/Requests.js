@@ -58,6 +58,41 @@ var Requests = /*#__PURE__*/function () {
 
       return getTop;
     }()
+    /**
+     * Get list of top ranked requests
+     */
+
+  }, {
+    key: "getAll",
+    value: function () {
+      var _getAll = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+        var res, data;
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(default_url + '/api/ranking/requests/belowTop');
+
+              case 2:
+                res = _context2.sent;
+                data = res.data.requests;
+                this.all = data;
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function getAll() {
+        return _getAll.apply(this, arguments);
+      }
+
+      return getAll;
+    }()
   }]);
   return Requests;
 }();

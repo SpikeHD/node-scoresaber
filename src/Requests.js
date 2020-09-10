@@ -17,6 +17,16 @@ class Requests {
 
     this.top = data
   }
+
+  /**
+   * Get list of all ranked requests
+   */
+  async getAll() {
+    let res = await axios.get(default_url + '/api/ranking/requests/belowTop')
+    let data = res.data.requests
+
+    this.all = data
+  }
 }
 
 module.exports = Requests
