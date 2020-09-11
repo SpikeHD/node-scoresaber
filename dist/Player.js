@@ -115,34 +115,33 @@ var Player = /*#__PURE__*/function (_Base) {
     key: "find",
     value: function () {
       var _find = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(name) {
-        var res, players;
+        var players;
         return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get(this.default_url + '/api/players/by-name/' + name);
+                return searchPlayers(name);
 
               case 2:
-                res = _context2.sent;
-                players = res.data.players; // If at least one player shows up in the search, get() them
+                players = _context2.sent;
 
                 if (!players[0]) {
-                  _context2.next = 9;
+                  _context2.next = 8;
                   break;
                 }
 
                 this.id = players[0].playerId;
-                _context2.next = 8;
+                _context2.next = 7;
                 return this.get();
 
-              case 8:
+              case 7:
                 return _context2.abrupt("return", this);
 
-              case 9:
+              case 8:
                 return _context2.abrupt("return", false);
 
-              case 10:
+              case 9:
               case "end":
                 return _context2.stop();
             }

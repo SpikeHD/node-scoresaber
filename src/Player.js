@@ -47,8 +47,7 @@ class Player extends Base {
    * @param {String} name 
    */
   async find(name) {
-    let res = await axios.get(this.default_url + '/api/players/by-name/' + name)
-    let players = res.data.players
+    let players = await searchPlayers(name)
 
     // If at least one player shows up in the search, get() them
     if(players[0]) {
