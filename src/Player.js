@@ -1,14 +1,16 @@
 const axios = require('axios')
+const Base = require('./Base')
 const searchPlayers = require('./searchPlayers')
-const default_url = 'https://new.scoresaber.com'
 
-class Player {
+class Player extends Base {
   /**
    * Assigns ID
    * 
    * @param {Number|String} id 
    */
   constructor(id) {
+    super()
+
     this.id = id
   }
 
@@ -18,11 +20,11 @@ class Player {
   async get() {
     if(!this.id) throw Error('Current object has no ID. Did you forget to provide one in the constructor or .find()?')
 
-    let res = await axios.get(default_url + '/api/player/' + this.id + '/full')
+    let res = await axios.get(this.default_url + '/api/player/' + this.id + '/full')
     let data = res.data.playerInfo
 
     this.name = data.playerName
-    this.avatar_url = default_url + data.avatar
+    this.avatar_url = this.default_url + data.avatar
     this.rank = data.rank
     this.countryRank = data.countryRank
     this.country = data.country
@@ -45,7 +47,7 @@ class Player {
    * @param {String} name 
    */
   async find(name) {
-    let res = await axios.get(default_url + '/api/players/by-name/' + name)
+    let res = await axios.get(this.default_url + '/api/players/by-name/' + name)
     let players = res.data.players
 
     // If at least one player shows up in the search, get() them
@@ -64,7 +66,7 @@ class Player {
    * @param {Number} num 
    */
   async getTopScores(num = 1) {
-    let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num)
+    let res = await axios.get(this.default_url + '/api/player/' + this.id + '/scores/top/' + num)
     let data = res.data
 
     return data.scores
@@ -76,7 +78,7 @@ class Player {
    * @param {Number} num 
    */
   async getRecentScores(num = 1) {
-    let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num)
+    let res = await axios.get(this.default_url + '/api/player/' + this.id + '/scores/recent/' + num)
     let data = res.data
 
     return data.scores

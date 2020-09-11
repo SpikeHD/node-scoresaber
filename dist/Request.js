@@ -2,6 +2,8 @@
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
+var _construct = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/reflect/construct"));
+
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
@@ -10,20 +12,38 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/he
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
 
+var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = (0, _construct["default"])(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !_construct["default"]) return false; if (_construct["default"].sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call((0, _construct["default"])(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 var axios = require('axios');
 
-var default_url = 'https://new.scoresaber.com';
+var Base = require('./Base');
 
-var Request = /*#__PURE__*/function () {
+var Request = /*#__PURE__*/function (_Base) {
+  (0, _inherits2["default"])(Request, _Base);
+
+  var _super = _createSuper(Request);
+
   /**
    * Assigns ID
    * 
    * @param {Number|String} id 
    */
   function Request(id) {
+    var _this;
+
     (0, _classCallCheck2["default"])(this, Request);
+    _this = _super.call(this);
     if (!id) throw Error('No ID provided in Request() constructor');
-    this.request = id;
+    _this.request = id;
+    return _this;
   }
   /**
    * Use ID to get song request data
@@ -40,7 +60,7 @@ var Request = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get(default_url + '/api/ranking/request/' + this.request);
+                return axios.get(this.default_url + '/api/ranking/request/' + this.request);
 
               case 2:
                 res = _context.sent;
@@ -78,6 +98,6 @@ var Request = /*#__PURE__*/function () {
     }()
   }]);
   return Request;
-}();
+}(Base);
 
 module.exports = Request;

@@ -2,6 +2,8 @@
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
+var _construct = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/reflect/construct"));
+
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
@@ -10,17 +12,32 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/he
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
 
+var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = (0, _construct["default"])(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !_construct["default"]) return false; if (_construct["default"].sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call((0, _construct["default"])(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 var axios = require('axios');
 
-var default_url = 'https://new.scoresaber.com';
+var Base = require('./Base');
 
-var Requests = /*#__PURE__*/function () {
+var Requests = /*#__PURE__*/function (_Base) {
+  (0, _inherits2["default"])(Requests, _Base);
+
+  var _super = _createSuper(Requests);
+
   /**
    * Empty constructor because we don't
    * need to do anything.
    */
   function Requests() {
     (0, _classCallCheck2["default"])(this, Requests);
+    return _super.call(this);
   }
   /**
    * Get list of top ranked requests
@@ -37,7 +54,7 @@ var Requests = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get(default_url + '/api/ranking/requests/top');
+                return axios.get(this.default_url + '/api/ranking/requests/top');
 
               case 2:
                 res = _context.sent;
@@ -72,7 +89,7 @@ var Requests = /*#__PURE__*/function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get(default_url + '/api/ranking/requests/belowTop');
+                return axios.get(this.default_url + '/api/ranking/requests/belowTop');
 
               case 2:
                 res = _context2.sent;
@@ -95,6 +112,6 @@ var Requests = /*#__PURE__*/function () {
     }()
   }]);
   return Requests;
-}();
+}(Base);
 
 module.exports = Requests;

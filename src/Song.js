@@ -1,5 +1,5 @@
 const axios = require('axios')
-const default_url = 'https://new.scoresaber.com'
+const Base = require('./Base')
 
 /**
  * So far, Scoresaber does not have song support
@@ -7,8 +7,10 @@ const default_url = 'https://new.scoresaber.com'
  * yet either. This is basically just here as a 
  * skeleton class for now.
  */
-class Song {
+class Song extends Base {
   constructor(id) {
+    super()
+
     if(!id) throw Error('No ID provided in Song() constructor')
 
     this.id = id

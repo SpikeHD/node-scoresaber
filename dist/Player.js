@@ -2,6 +2,8 @@
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
+var _construct = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/reflect/construct"));
+
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
@@ -10,19 +12,39 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/he
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
 
+var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = (0, _construct["default"])(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !_construct["default"]) return false; if (_construct["default"].sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call((0, _construct["default"])(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 var axios = require('axios');
 
-var default_url = 'https://new.scoresaber.com';
+var Base = require('./Base');
 
-var Player = /*#__PURE__*/function () {
+var searchPlayers = require('./searchPlayers');
+
+var Player = /*#__PURE__*/function (_Base) {
+  (0, _inherits2["default"])(Player, _Base);
+
+  var _super = _createSuper(Player);
+
   /**
    * Assigns ID
    * 
    * @param {Number|String} id 
    */
   function Player(id) {
+    var _this;
+
     (0, _classCallCheck2["default"])(this, Player);
-    this.id = id;
+    _this = _super.call(this);
+    _this.id = id;
+    return _this;
   }
   /**
    * Get player data and score data
@@ -47,13 +69,13 @@ var Player = /*#__PURE__*/function () {
 
               case 2:
                 _context.next = 4;
-                return axios.get(default_url + '/api/player/' + this.id + '/full');
+                return axios.get(this.default_url + '/api/player/' + this.id + '/full');
 
               case 4:
                 res = _context.sent;
                 data = res.data.playerInfo;
                 this.name = data.playerName;
-                this.avatar_url = default_url + data.avatar;
+                this.avatar_url = this.default_url + data.avatar;
                 this.rank = data.rank;
                 this.countryRank = data.countryRank;
                 this.country = data.country;
@@ -99,7 +121,7 @@ var Player = /*#__PURE__*/function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get(default_url + '/api/players/by-name/' + name);
+                return axios.get(this.default_url + '/api/players/by-name/' + name);
 
               case 2:
                 res = _context2.sent;
@@ -154,7 +176,7 @@ var Player = /*#__PURE__*/function () {
               case 0:
                 num = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 1;
                 _context3.next = 3;
-                return axios.get(default_url + '/api/player/' + this.id + '/scores/top/' + num);
+                return axios.get(this.default_url + '/api/player/' + this.id + '/scores/top/' + num);
 
               case 3:
                 res = _context3.sent;
@@ -182,9 +204,9 @@ var Player = /*#__PURE__*/function () {
      */
 
   }, {
-    key: "getTopScores",
+    key: "getRecentScores",
     value: function () {
-      var _getTopScores2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
+      var _getRecentScores = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
         var num,
             res,
             data,
@@ -195,7 +217,7 @@ var Player = /*#__PURE__*/function () {
               case 0:
                 num = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : 1;
                 _context4.next = 3;
-                return axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num);
+                return axios.get(this.default_url + '/api/player/' + this.id + '/scores/recent/' + num);
 
               case 3:
                 res = _context4.sent;
@@ -210,14 +232,14 @@ var Player = /*#__PURE__*/function () {
         }, _callee4, this);
       }));
 
-      function getTopScores() {
-        return _getTopScores2.apply(this, arguments);
+      function getRecentScores() {
+        return _getRecentScores.apply(this, arguments);
       }
 
-      return getTopScores;
+      return getRecentScores;
     }()
   }]);
   return Player;
-}();
+}(Base);
 
 module.exports = Player;
