@@ -1,4 +1,5 @@
 const axios = require('axios')
+const searchPlayers = require('./searchPlayers')
 const default_url = 'https://new.scoresaber.com'
 
 class Player {
@@ -74,7 +75,7 @@ class Player {
    * 
    * @param {Number} num 
    */
-  async getTopScores(num = 1) {
+  async getRecentScores(num = 1) {
     let res = await axios.get(default_url + '/api/player/' + this.id + '/scores/recent/' + num)
     let data = res.data
 
