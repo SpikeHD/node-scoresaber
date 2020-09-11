@@ -111,3 +111,6 @@ Retrieves all information about a ranked request
 
 ### Methods:
 Currently not supported by the Scoresaber API.
+
+# Contributing
+Issues, PRs, etc., are all welcome!
