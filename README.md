@@ -17,7 +17,7 @@ const saber = require('node-scoresaber')
 
 Everything is based off of functions. Internally, these functions actually return instances of classes, which used to be how you would interact with this module until v2.0.0, but now it should be much cleaner and easier to use.
 
-\* *All functions are asynchronous unless otherwise mentioned
+\* *All functions are asynchronous unless otherwise mentioned*
 
 Jump to:
 * [Functions](#functions)
