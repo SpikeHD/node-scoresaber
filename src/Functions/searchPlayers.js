@@ -19,6 +19,7 @@ module.exports = async (name) => {
   let players = res.data.players
 
   players.map((p, i) => {
+    players[i].history = p.history.split(',')
     players[i].get = get
   })
 
