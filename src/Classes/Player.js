@@ -30,7 +30,10 @@ class Player extends Base {
     this.country = data.country
     this.pp = data.pp
     this.role = data.role
-    this.badges = data.badges
+    this.badges = data.badges.map(o => {
+      o.image = 'https://new.scoresaber.com/api/static/badges/' + o.image
+      return o
+    })
     this.isBanned = data.banned === 1
     this.isInactive = data.inactive === 1
     this.totalScore = res.data.scoreStats.totalScore
