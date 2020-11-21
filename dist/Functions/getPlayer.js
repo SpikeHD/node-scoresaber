@@ -7,6 +7,12 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regene
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
 
 var Player = require('../Classes/Player');
+/**
+ * Get player via ID.
+ * 
+ * @param {String|Number} id 
+ */
+
 
 module.exports = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(id) {
@@ -26,7 +32,7 @@ module.exports = /*#__PURE__*/function () {
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](1);
-            throw new Error('Could not find player. The ID was invalid, or the player does not exist');
+            throw new Error('Could not find player. The ID was invalid, or the player does not exist.');
 
           case 10:
           case "end":

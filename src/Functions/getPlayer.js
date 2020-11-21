@@ -1,5 +1,10 @@
 const Player = require('../Classes/Player')
 
+/**
+ * Get player via ID.
+ * 
+ * @param {String|Number} id 
+ */
 module.exports = async (id) => {
   const player = new Player(id)
   try {
