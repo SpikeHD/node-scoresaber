@@ -3,14 +3,6 @@ const Base = require('./Base')
 
 class Requests extends Base {
   /**
-   * Empty constructor because we don't
-   * need to do anything.
-   */
-  constructor() {
-    super()
-  }
-
-  /**
    * Get list of top ranked requests
    */
   async getTop() {
