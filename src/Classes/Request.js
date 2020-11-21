@@ -37,6 +37,8 @@ class Request extends Base {
     this.rankComments = info.rankComments
     this.qatComments = info.qatComments
     this.difficulties = data.difficulties
+
+    return this
   }
 }
 

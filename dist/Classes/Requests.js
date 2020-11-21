@@ -60,8 +60,9 @@ var Requests = /*#__PURE__*/function (_Base) {
                 res = _context.sent;
                 data = res.data.requests;
                 this.top = data;
+                return _context.abrupt("return", this.top);
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -95,8 +96,9 @@ var Requests = /*#__PURE__*/function (_Base) {
                 res = _context2.sent;
                 data = res.data.requests;
                 this.all = data;
+                return _context2.abrupt("return", this.all);
 
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }

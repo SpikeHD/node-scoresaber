@@ -18,6 +18,8 @@ class Requests extends Base {
     let data = res.data.requests
 
     this.top = data
+
+    return this.top
   }
 
   /**
@@ -28,6 +30,8 @@ class Requests extends Base {
     let data = res.data.requests
 
     this.all = data
+
+    return this.all
   }
 }
 

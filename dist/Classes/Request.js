@@ -81,8 +81,9 @@ var Request = /*#__PURE__*/function (_Base) {
                 this.rankComments = info.rankComments;
                 this.qatComments = info.qatComments;
                 this.difficulties = data.difficulties;
+                return _context.abrupt("return", this);
 
-              case 20:
+              case 21:
               case "end":
                 return _context.stop();
             }

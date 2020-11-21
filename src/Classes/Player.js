@@ -1,6 +1,6 @@
 const axios = require('axios')
 const Base = require('./Base')
-const searchPlayers = require('./searchPlayers')
+const searchPlayers = require('../Functions/searchPlayers')
 
 class Player extends Base {
   /**
@@ -38,6 +38,8 @@ class Player extends Base {
     this.averageRankedAccuracy = res.data.scoreStats.averageRankedAccuracy
     this.playCount = res.data.scoreStats.totalPlayCount
     this.rankedPlayCount = res.data.scoreStats.rankedPlayCount
+
+    return this
   }
 
   /**

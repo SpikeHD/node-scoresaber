@@ -26,7 +26,7 @@ var axios = require('axios');
 
 var Base = require('./Base');
 
-var searchPlayers = require('./searchPlayers');
+var searchPlayers = require('../Functions/searchPlayers');
 
 var Player = /*#__PURE__*/function (_Base) {
   (0, _inherits2["default"])(Player, _Base);
@@ -89,8 +89,9 @@ var Player = /*#__PURE__*/function (_Base) {
                 this.averageRankedAccuracy = res.data.scoreStats.averageRankedAccuracy;
                 this.playCount = res.data.scoreStats.totalPlayCount;
                 this.rankedPlayCount = res.data.scoreStats.rankedPlayCount;
+                return _context.abrupt("return", this);
 
-              case 21:
+              case 22:
               case "end":
                 return _context.stop();
             }
