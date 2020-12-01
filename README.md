@@ -152,7 +152,7 @@ Each object contains:
 const myPlayer = await saber.searchPlayers('spikehd')
 
 if (myPlayer[0]) {
-  console.log(await myPlayer.get())
+  console.log(await myPlayer[0].get())
 }
 ```
 
