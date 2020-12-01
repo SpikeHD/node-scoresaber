@@ -4,7 +4,7 @@
 
 # Description
 
-`node-scoresaber` is an asynchronous class-based API wrapper for [scoresaber.com](https://new.scoresaber.com/) written in Javascript using `axios`. It supports viewing player stats, ranked request lists and request details, player searching, ~~and song leaderboards and details~~. 
+`node-scoresaber` is an asynchronous function-based API wrapper for [scoresaber.com](https://new.scoresaber.com/) written in Javascript using `axios`. It supports viewing player stats, ranked request lists and request details, player searching, ~~and song leaderboards and details~~. 
 
 # Installation
 
