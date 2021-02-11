@@ -24,6 +24,7 @@ Jump to:
   * [Players](#players)
       * `searchPlayers(name)`
       * `getPlayer(id)`
+      * `getPlayerByRank(rank)`
   * [Requests](#requests)
       * `getRequest(id)`
       * `getTopRequests()`
@@ -40,6 +41,36 @@ Jump to:
 | Parameter | Type |
 | --------- | ---- |
 | id | String or Number. Usually Steam ID or Oculus ID |
+
+### Returns
+
+Return value: `Object`
+
+| Property | Description |
+| -------- | ----------- |
+| name | Username of the player |
+| avatar_url | URL that points to player avatar |
+| rank | Current global rank |
+| countryRank | Current rank in their respective country |
+| country | Short-form version of player's respective country |
+| pp | Total PP |
+| role | Player role (eg."Supporter")
+| badges | Array of badges the player has, and their image links |
+| isBanned | Boolean - whether player is banned |
+| isInactive | Boolean - whether player is inactive |
+| totalScore | Total score earned |
+| totalRankedScore | Total score for ranked songs only |
+| averageRankedAccuracy | Average ranked accuracy |
+| playCount | Total amount of plays |
+| rankedPlayCount | Total amount of ranked plays |
+
+---
+
+`getPlayerByRank(rank)`
+
+| Parameter | Type |
+| --------- | ---- |
+| rank | Number, specifies what rank to get. |
 
 ### Returns
 
@@ -159,6 +190,11 @@ if (myPlayer[0]) {
 ## Getting a player by ID
 ```js
 const myPlayer = await saber.getPlayer('76561198106696130')
+console.log(myPlayer)
+```
+## Getting a player by Rank
+```js
+const myPlayer = await saber.getPlayerByRank(600);
 console.log(myPlayer)
 ```
 
