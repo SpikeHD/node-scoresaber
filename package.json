@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/SpikeHD/node-scoresaber.git"
   },
-  "keywords":[
+  "keywords": [
     "beatsaber",
     "scoresaber",
     "api",
@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.11.2",
-    "axios": "^0.20.0"
+    "got": "^11.8.2"
   }
 }

@@ -1,4 +1,3 @@
-const axios = require('axios')
 const Base = require('./Base')
 
 class Request extends Base {
@@ -18,8 +17,8 @@ class Request extends Base {
    * Use ID to get song request data
    */
   async get() {
-    let res = await axios.get(this.default_url + '/api/ranking/request/' + this.request)
-    let data = res.data.request
+    let res = await this.client.get(this.default_url + '/api/ranking/request/' + this.request)
+    let data = JSON.parse(res.body).request
     let info = data.info
 
     this.songId = info.songId

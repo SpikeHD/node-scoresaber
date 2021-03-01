@@ -1,4 +1,3 @@
-const axios = require('axios')
 const Base = require('./Base')
 
 /**
@@ -13,8 +12,8 @@ class Requests extends Base {
    * Get list of top ranked requests
    */
   async getTop() {
-    let res = await axios.get(this.default_url + '/api/ranking/requests/top')
-    let data = res.data.requests
+    let res = await this.client.get(this.default_url + '/api/ranking/requests/top')
+    let data = JSON.parse(res.body).requests
 
     data.map((r, i) => {
       data[i].get = get
@@ -29,8 +28,8 @@ class Requests extends Base {
    * Get list of all ranked requests
    */
   async getAll() {
-    let res = await axios.get(this.default_url + '/api/ranking/requests/belowTop')
-    let data = res.data.requests
+    let res = await this.client.get(this.default_url + '/api/ranking/requests/belowTop')
+    let data = JSON.parse(res.body).requests
 
     data.map((r, i) => {
       data[i].get = get
