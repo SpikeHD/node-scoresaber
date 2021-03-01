@@ -2,7 +2,7 @@
 
 ## node-scoresaber
 
-A NodeJS API wrapper for ScoreSaber.com
+A NodeJS API wrapper for https://new.scoresaber.com/
 
 https://www.npmjs.com/package/node-scoresaber
 
