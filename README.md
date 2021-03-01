@@ -2,6 +2,8 @@
 
 ## node-scoresaber - A NodeJS API wrapper for ScoreSaber.com
 
+https://www.npmjs.com/package/node-scoresaber
+
 # Description
 
 `node-scoresaber` is an asynchronous function-based API wrapper for [scoresaber.com](https://new.scoresaber.com/) written in Javascript using `axios`. It supports viewing player stats, ranked request lists and request details, player searching, ~~and song leaderboards and details~~. 
