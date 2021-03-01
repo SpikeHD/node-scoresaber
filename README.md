@@ -1,10 +1,14 @@
 ![https://github.com/SpikeHD/node-scoresaber](https://img.shields.io/github/package-json/v/SpikeHD/node-scoresaber) ![https://github.com/SpikeHD/node-scoresaber](https://img.shields.io/david/SpikeHD/node-scoresaber) ![https://www.npmjs.com/package/node-scoresaber](https://img.shields.io/npm/dw/node-scoresaber)
 
-## node-scoresaber - A NodeJS API wrapper for ScoreSaber.com
+## node-scoresaber
+
+A NodeJS API wrapper for https://new.scoresaber.com/
+
+https://www.npmjs.com/package/node-scoresaber
 
 # Description
 
-`node-scoresaber` is an asynchronous class-based API wrapper for [scoresaber.com](https://new.scoresaber.com/) written in Javascript using `axios`. It supports viewing player stats, ranked request lists and request details, player searching, ~~and song leaderboards and details~~. 
+`node-scoresaber` is an asynchronous function-based API wrapper for [scoresaber.com](https://new.scoresaber.com/) written in Javascript using `axios`. It supports viewing player stats, ranked request lists and request details, player searching, ~~and song leaderboards and details~~. 
 
 # Installation
 
@@ -152,7 +156,7 @@ Each object contains:
 const myPlayer = await saber.searchPlayers('spikehd')
 
 if (myPlayer[0]) {
-  console.log(await myPlayer.get())
+  console.log(await myPlayer[0].get())
 }
 ```
 
