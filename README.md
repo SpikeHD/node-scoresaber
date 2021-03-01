@@ -1,6 +1,8 @@
 ![https://github.com/SpikeHD/node-scoresaber](https://img.shields.io/github/package-json/v/SpikeHD/node-scoresaber) ![https://github.com/SpikeHD/node-scoresaber](https://img.shields.io/david/SpikeHD/node-scoresaber) ![https://www.npmjs.com/package/node-scoresaber](https://img.shields.io/npm/dw/node-scoresaber)
 
-## node-scoresaber - A NodeJS API wrapper for ScoreSaber.com
+## node-scoresaber
+
+A NodeJS API wrapper for ScoreSaber.com
 
 https://www.npmjs.com/package/node-scoresaber
 
